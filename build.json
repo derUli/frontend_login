@@ -1,0 +1,13 @@
+{
+	"source" : "extend",
+	"id": "frontend_login",
+	"version": "1.0.0",
+	"description": "Frontend Login Form",
+	"categories": [
+		"fun",
+		"jokes",
+		"toy"
+	],
+	"compatible_from": "2018.4",
+	"dependencies": []
+}
