@@ -14,4 +14,4 @@ The frontend_login module supports templates.
 
 Frontend Login URL: you can set `$frontend_login_url` to an URL.
 frontend_login redirects to that after a successful login.
-If the option is not set frontend_login redirects to it's "Welcome Page" which can be adjusted by a template override.
+If the option is not set frontend_login redirects to it's "Welcome Page" which can be customized by a template override.
