@@ -6,9 +6,17 @@ frontend_login uses bootstrap for styling.
 It shows a welcome page after successful login.
 The frontend_login module supports templates.
 
-## Howto Install
+## How to Install
 
-[...]
+1. "Packages" > "Install package" > "upload file".
+2. "Choose file".
+3. Select frontend_login-[version].sin
+4. Click "Install package".
+5. Confirm the installation.
+5. Create a new page.
+6. select "Module" as "Type"
+7. Select "frontend_login" as "Module".
+8. Save the new page.
 
 ## Configuration Options
 
