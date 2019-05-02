@@ -24,7 +24,7 @@ class FrontendLoginController extends MainClass
         $login = validate_login($user, $password);
         if ($login) {
             register_session($login, false);
-            $url = is_true($cfg->frontend_login_url) ? $cfg->frontend_login_url : buildSEOUrl($firstPage->systemname);
+            $url = is_true($cfg->frontend_login_url) ? $cfg->frontend_login_url : buildSEOUrl($firstPage->slug);
             Response::redirect($url);
         } else {
             $url = ModuleHelper::getFullPageURLByID($firstPage->id, "error=USER_OR_PASSWORD_INCORRECT");
