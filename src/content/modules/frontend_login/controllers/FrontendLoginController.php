@@ -1,29 +1,27 @@
 <?php
+
 use UliCMS\Exceptions\NotImplementedException;
 
-class FrontendLoginController extends MainClass
-{
+class FrontendLoginController extends MainClass {
 
     const MODULE_NAME = "frontend_login";
 
-    public function render()
-    {
-        if (! is_logged_in()) {
+    public function render() {
+        if (!is_logged_in()) {
             return Template::executeModuleTemplate(self::MODULE_NAME, "form.php");
         }
         return Template::executeModuleTemplate(self::MODULE_NAME, "welcome.php");
     }
 
-    public function doLogin()
-    {
+    public function doLogin() {
         $cfg = new CMSConfig();
         $firstPage = ModuleHelper::getFirstPageWithModule(self::MODULE_NAME, getCurrentLanguage(true));
-        
+
         $user = Request::getVar("user");
         $password = Request::getVar("password");
         $login = validate_login($user, $password);
         if ($login) {
-            register_session($login, false);
+            register_session((int) $login['id'], false);
             $url = is_true($cfg->frontend_login_url) ? $cfg->frontend_login_url : buildSEOUrl($firstPage->slug);
             Response::redirect($url);
         } else {
@@ -32,11 +30,11 @@ class FrontendLoginController extends MainClass
         }
     }
 
-    public function doLogout()
-    {
+    public function doLogout() {
         @session_destroy();
         $firstPage = ModuleHelper::getFirstPageWithModule(self::MODULE_NAME, getCurrentLanguage(true));
         $url = ModuleHelper::getFullPageURLByID($firstPage->id);
         Response::redirect($url);
     }
+
 }
