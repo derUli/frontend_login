@@ -21,7 +21,7 @@ class FrontendLoginController extends MainClass {
         $password = Request::getVar("password");
         $login = validate_login($user, $password);
         if ($login) {
-            register_session((int) $login['id'], false);
+            register_session((int)$login['id'], false);
             $url = is_true($cfg->frontend_login_url) ? $cfg->frontend_login_url : buildSEOUrl($firstPage->slug);
             Response::redirect($url);
         } else {
